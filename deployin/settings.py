@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
 from pathlib import Path
+from utils import get_secret
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -25,7 +26,7 @@ SECRET_KEY = 'django-insecure-9fepa^%m51vy@$srr2y-+*c@bnb7kc&k==hh$nxdbjuwdf^r(#
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['Deploying-env.eba-dzdp24ve.us-east-1.elasticbeanstalk.com', '127.0.0.1', 'localhost']
+ALLOWED_HOSTS = ['app1-prod.eba-upgtbdmw.us-east-1.elasticbeanstalk.com', 'deploying-env.eba-dzdp24ve.us-east-1.elasticbeanstalk.com', '127.0.0.1', 'localhost']
 
 
 # Application definition
@@ -81,14 +82,7 @@ WSGI_APPLICATION = 'deployin.wsgi.application'
 #     }
 # }
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'deployin',
-        'USER': 'hira123',
-        'PASSWORD': 'qwerty123',
-        'HOST': 'hira.coofgijc7nl8.us-east-1.rds.amazonaws.com',
-        'PORT': '5432',
-    }
+    'default': get_secret(secret_name='deploying')
 }
 
 
