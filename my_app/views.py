@@ -3,6 +3,7 @@ from .models import User, Contact
 
 
 def show_all_users(request):
+
     users = list(User.objects.values_list())
 
     res = ''
