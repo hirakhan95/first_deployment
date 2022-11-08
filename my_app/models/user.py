@@ -6,4 +6,4 @@ class User(models.Model):
     detail = models.CharField(max_length=300)
 
     def __str__(self):
-        return self.name + ' ' + self.email
+        return self.name
